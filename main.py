@@ -24,17 +24,16 @@ class SMSRequest(BaseModel):
 
 @app.post("/send-sms")
 async def send_sms(sms_request: SMSRequest):
-    print(sms_request.to)
-    try:
-        message = client.messages.create(
-            body=sms_request.body,
-            to='+918104680835',
-            from_='+18508468650'
-        )
-        return {"success": True, "message_sid": message.sid}
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                            detail=str(e))
+    account_sid = 'ACa0649168589273e59a6d97cfb793b098'
+    auth_token = '5154bd246b808382b95b627a60d764c9'
+    client = Client(account_sid, auth_token)
+    
+    message = client.messages.create(
+      from='+18508468650',
+      body='aa',
+      to='+918104680835'
+    )
+    return {"success": True, "message_sid": message.sid}
 
 # Run the server (uncomment the following line if you wish to use uvicorn programmatically)
 if __name__ == "__main__":
