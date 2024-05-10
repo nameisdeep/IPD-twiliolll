@@ -24,6 +24,7 @@ class SMSRequest(BaseModel):
 
 @app.post("/send-sms")
 async def send_sms(sms_request: SMSRequest):
+    print(sms_request.to)
     try:
         message = client.messages.create(
             body=sms_request.body,
