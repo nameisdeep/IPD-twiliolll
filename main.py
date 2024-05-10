@@ -15,7 +15,7 @@ app.add_middleware(
 
 
 
-client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+client = Client('ACa0649168589273e59a6d97cfb793b098', 'ACa0649168589273e59a6d97cfb793b098')
 
 # Define a request model
 class SMSRequest(BaseModel):
